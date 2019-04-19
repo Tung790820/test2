@@ -23,11 +23,12 @@ solution(4);
 
 
 function solution(n){
-	int sum=0;
-	for(int i =1 ; i <= 2 ; i++){
-			sum = sum + (n - i);
-	}
-	return sum;
+        if(n==1)
+                return 1;
+        else if (n==2)
+                return 1;
+        else
+                return solution(n-1)+solution(n-2); 
 }
 
 

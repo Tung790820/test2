@@ -16,5 +16,42 @@
 
 solution(4);
 
-function solution(n) {
-}
+	
+	public static void solution(int n){
+		StringBuilder s = new StringBuilder();
+		String str = "";
+		int t;
+		
+		for(int i = 0; i <= n/2 ; i++) {
+			if(i == 0) {
+				s.append('1'); 
+			} else {
+				s.append('0');
+			}
+		}
+		str = s.toString();
+		t = Integer.valueOf(str);
+		
+		for(int i=0 ; i < Math.pow(10, n) ;i++ ) {
+			if(i == 0) {
+				String str2 = String.valueOf(i);
+				StringBuffer sb = new StringBuffer();
+				for(int j = 0; j < n - str2.length(); j++) {
+				sb.append("0");
+				}
+				sb.append(str2);
+				str2 = sb.toString();
+				System.out.print(str2);
+			}else if(Math.pow((i/t)+(i%t), 2) == i) {
+				String str2 = String.valueOf(i);
+				StringBuffer sb = new StringBuffer();
+				for(int j = 0; j < n - str2.length(); j++) {
+				sb.append("0");
+				}
+				sb.append(str2);
+				str2 = sb.toString();
+				System.out.print("," + str2);
+			}
+		}
+		
+    }
