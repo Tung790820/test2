@@ -37,6 +37,97 @@ A=10，帶入後變成
 */
 solution(A123456789);
 
+	public static char stringToChar (String s) {
+		switch(s) {
+		 case "台北市":
+		   return 'A';
+		 case "新竹縣":
+		   return 'J'; 
+		 case "高雄縣":
+		   return 'S';
+		 case "台中市":
+			 return 'B';
+		 case "苗栗縣":
+			return 'K';
+		 case "屏東縣":
+			return 'T';
+		 case "基隆市":
+			return 'C';
+		 case "台中縣":
+			return 'L';
+		 case "花蓮縣":
+			return 'U';
+		 case "台南市":
+			return 'D';
+		 case "南投縣":
+			return 'M';
+		 case "台東縣":
+			return 'V';
+		 case "高雄市":
+			return 'E';
+		 case "彰化縣":
+			return 'N';
+		 case "金門縣":
+			return 'W';
+		 case "台北縣":
+			return 'F';
+		 case "新竹市":
+			return 'O';
+		 case "澎湖縣":
+			return 'X';
+		 case "宜蘭縣":
+			return 'G';
+		 case "雲林縣":
+			return 'P';
+		 case "陽明山":
+			return 'Y';
+		 case "桃園縣":
+			return 'H';
+		 case "嘉義縣":
+			return 'Q';
+		 case "連江縣":
+			return 'Z';
+		 case "嘉義市":
+			return 'I';
+		 case "台南縣":
+			return 'R';
+			default:
+				return '0';
+		}
+	}
+
+//	function solution(data){
+//		char b[] = new char[data.length()];
+//		
+//	}
+	
+	public static String solution2 (Map<String, String> data) {
+		String n = "", ans = "";
+		char e,f;
+		boolean flag = false;
+		
+		while(!flag) {
+		e = stringToChar(data.get("location"));
+		
+		if(data.get("gender").equals("男")) {
+			f = '1';
+		}else {
+			f = '2';
+		}
+		
+		Random ran = new Random();
+		for(int i =0;i<8;i++) {
+			n = n + String.valueOf(ran.nextInt(9) + 1);
+		}
+		
+		ans = new StringBuilder().append(e).append(f).append(n).toString();
+		System.out.println(ans);
+		flag = solution(ans);
+		}
+		
+		return ans;
+	}
+	
 	public static boolean solution (String data) {
 		char b[] = new char[data.length()];
 		int sum[] = new int[data.length()];
@@ -44,7 +135,8 @@ solution(A123456789);
 		for(int i=0 ; i<data.length() ; i++) {
 			b[i] = data.charAt(i); 
 		}
-		sum[0] = b[0] - 55;
+		sum[0] = charToInt (b[0]);
+		
 //		System.out.println("\nsum[0]=" + sum[0]);
 		for(int i=1 ; i<data.length() ; i++) {
 			sum[i]=b[i] - 48;
@@ -57,10 +149,71 @@ solution(A123456789);
 		n += sum[9];
 		
 		if(n%10 == 0) {
+			System.out.println("true");
 		    return true;
 		}else {
+			System.out.println("false");
 			return false;
 		}
 	}
+				 
 	
-	/*
+	public static int charToInt (char c) {
+		switch (c) {
+		case 'A':
+			return 10;
+		case 'B':
+			return 11;
+		case 'C':
+			return 12;
+		case 'D':
+			return 13;
+		case 'E':
+			return 14;
+		case 'F':
+			return 15;
+		case 'G':
+			return 16;
+		case 'H':
+			return 17;
+		case 'I':
+			return 34;
+		case 'J':
+			return 18;
+		case 'K':
+			return 19;
+		case 'L':
+			return 20;
+		case 'M':
+			return 21;
+		case 'N':
+			return 22;
+		case 'O':
+			return 35;
+		case 'P':
+			return 23;
+		case 'Q':
+			return 24;
+		case 'R':
+			return 25;
+		case 'S':
+			return 26;
+		case 'T':
+			return 27;
+		case 'U':
+			return 28;
+		case 'V':
+			return 29;
+		case 'W':
+			return 32;
+		case 'X':
+			return 30;
+		case 'Y':
+			return 31;
+		case 'Z':
+			return 33;
+		default:
+				return 0;
+		}
+
+	}
