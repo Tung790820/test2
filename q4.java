@@ -17,6 +17,40 @@
 solution1('3 + 2 - 4');
 
 function solution1(s) {
+		int sum[] = new int[(s.length()+1)/2];
+		char symbol[] = new char[(s.length()-1)/2];
+		int j = 0, k = 0;
+		for(int i = 1;i<=s.length();i++) {
+			if(i%2 == 1) {
+				sum[j] = s.charAt(i-1);
+				sum[j] = sum[j]-48;
+				j++;
+			}else{
+				symbol[k] = s.charAt(i-1);
+				k++;
+			}
+		}
+		
+		int n = sum[0];
+		for(int i=0;i<symbol.length;i++) {
+			switch(symbol[i]) {
+			case '+':
+				n = n+sum[i+1];
+				break;
+			case '-':
+				n = n-sum[i+1];
+				break;
+			case '*':
+				n = n*sum[i+1];
+				break;
+			case '/':
+				n = n/sum[i+1];
+				break;
+				default:
+					break;
+			}
+		}
+		return n;
 }
 
 
